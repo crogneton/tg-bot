@@ -37,8 +37,10 @@
             // Отправка текста на сервер
             Telegram.WebApp.sendData(text);
 
-            // Обновляем сообщение в UI (это просто демонстрация, на самом деле вам нужно обрабатывать серверный ответ)
-            responseDiv.textContent = 'Текст отправлен на сервер: ' + text;
+            // Ожидание ответа от сервера
+            Telegram.WebApp.onEvent('messageReceived', (message) => {
+                responseDiv.textContent = `Ответ от сервера: ${message.text}`;
+            });
         };
 
         // Отправка текста каждую секунду
