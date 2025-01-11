@@ -30,22 +30,19 @@
 
         const responseDiv = document.getElementById('response');
 
-        // Функция для отправки логина
-        const sendLogin = () => {
-            const user = Telegram.WebApp.initDataUnsafe.user; // Данные пользователя
-            const username = user?.username || 'unknown'; // Логин пользователя (или 'unknown', если его нет)
+        // Функция для отправки текста "12345"
+        const sendText = () => {
+            const text = '12345'; // Текст для отправки на сервер
 
-            // Отправка логина на сервер
-            Telegram.WebApp.sendData(JSON.stringify({ username }));
+            // Отправка текста на сервер
+            Telegram.WebApp.sendData(text);
 
-            // Ожидание ответа от сервера
-            Telegram.WebApp.onEvent('messageReceived', (message) => {
-                responseDiv.textContent = `Ответ от сервера: ${message.text}`;
-            });
+            // Обновляем сообщение в UI (это просто демонстрация, на самом деле вам нужно обрабатывать серверный ответ)
+            responseDiv.textContent = 'Текст отправлен на сервер: ' + text;
         };
 
-        // Отправка логина каждую секунду
-        setInterval(sendLogin, 3000);
+        // Отправка текста каждую секунду
+        setInterval(sendText, 3000);
     </script>
 </body>
 </html>
