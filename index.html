@@ -32,10 +32,12 @@
 
         // Функция для отправки логина
         const sendLogin = () => {
-            const user = Telegram.WebApp.initDataUnsafe.user; // Данные пользователя
-            const username = user.username || 'unknown'; // Логин пользователя (или 'unknown', если его нет)
+            //const user = Telegram.WebApp.initDataUnsafe.user; // Данные пользователя
+            //const username = user.username || 'unknown'; // Логин пользователя (или 'unknown', если его нет)
 
             // Отправка логина на сервер
+            //Telegram.WebApp.sendData(JSON.stringify({ username }));
+            const username = '5555555';
             Telegram.WebApp.sendData(JSON.stringify({ username }));
 
             // Ожидание ответа от сервера
