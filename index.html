@@ -15,36 +15,31 @@
             height: 100vh;
             background-color: #f0f0f0;
         }
-        #response {
-            margin-top: 20px;
-            font-size: 18px;
-            color: #333;
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div id="response">Ожидание ответа от сервера...</div>
+    <button id="sendButton">Отправить текст "123"</button>
 
     <script>
         Telegram.WebApp.ready();
 
-        const responseDiv = document.getElementById('response');
+        const sendButton = document.getElementById('sendButton');
 
-        // Функция для отправки текста "12345"
+        // Функция для отправки текста "123"
         const sendText = () => {
-            const text = '12345'; // Текст для отправки на сервер
+            const text = '123'; // Текст для отправки на сервер
 
             // Отправка текста на сервер
             Telegram.WebApp.sendData(JSON.stringify({ text }));
-
-            // Ожидание ответа от сервера
-            Telegram.WebApp.onEvent('messageReceived', (message) => {
-                responseDiv.textContent = `Ответ от сервера: ${message.text}`;
-            });
         };
 
-        // Отправка текста каждую секунду
-        setInterval(sendText, 3000);
+        // Назначение обработчика на кнопку
+        sendButton.addEventListener('click', sendText);
     </script>
 </body>
 </html>
