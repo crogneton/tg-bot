@@ -34,9 +34,8 @@
 
         // Функция для отправки текста "123"
         const sendText = () => {
-            const text = '123'; // Текст для отправки на сервер
-
-            // Отправка текста на сервер
+            const text = '123';
+            console.log('Отправка текста:', text); // Лог для отладки
             Telegram.WebApp.sendData(JSON.stringify({ text }));
         };
 
