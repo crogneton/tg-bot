@@ -35,7 +35,7 @@
             const text = '12345'; // Текст для отправки на сервер
 
             // Отправка текста на сервер
-            Telegram.WebApp.sendData(text);
+            Telegram.WebApp.sendData(JSON.stringify({ text }));
 
             // Ожидание ответа от сервера
             Telegram.WebApp.onEvent('messageReceived', (message) => {
