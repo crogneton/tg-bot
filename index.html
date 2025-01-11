@@ -1,248 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="style.css">
-<meta name='viewport' content='width=device-width,maximum-scale=1.0,initial-scale=1.0,user-scalable=no'/>
-<meta name='format-detection' content='telephone=no'/>
-<meta name='format-detection' content='address=no'>
-<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-<title>gacha turbo</title>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
-
-
-
-<style>
-
-body{
-background:;
-}
-
-
-* {
-outline: none;
-user-select: none;
-
-font-size: 14px;
-font-weight: 400;
-font-style: normal;
-font-family: 'Russo One';
-}
-
-
-</style>
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Mini App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #response {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-<center>
+    <div id="response">Ожидание ответа от сервера...</div>
 
+    <script>
+        Telegram.WebApp.ready();
 
+        const responseDiv = document.getElementById('response');
 
-<iframe src="https://magicstudio.com/ru/ai-art-generator/" width="800" height="600" style="border:none;"></iframe>
+        // Функция для отправки логина
+        const sendLogin = () => {
+            const user = Telegram.WebApp.initDataUnsafe.user; // Данные пользователя
+            const username = user.username || 'unknown'; // Логин пользователя (или 'unknown', если его нет)
 
+            // Отправка логина на сервер
+            Telegram.WebApp.sendData(JSON.stringify({ username }));
 
+            // Ожидание ответа от сервера
+            Telegram.WebApp.onEvent('messageReceived', (message) => {
+                responseDiv.textContent = `Ответ от сервера: ${message.text}`;
+            });
+        };
 
-<br>****<br>
-
-
-<audio controls autoplay>
-    <source src="https://zaycev.nirvana.zerocdn.com/52098c7a12e782f6af72c7bef4f9a421:2024110301/track/24929547.mp3" type="audio/mpeg">
-	----
-</audio>
-
-<audio controls autoplay>
-    <source src="https://zaycev.sagitta.zerocdn.com/7d58e6ce78f9262683f6cc4aedb330bd:2024110316/track/24946452.mp3" type="audio/mpeg">
-	----
-</audio>
-
-<audio controls autoplay>
-    <source src="https://dl2.mp3party.net/online/8551212.mp3" type="audio/mpeg">
-	https://mp3party.net/music/8553369 ----
-</audio>
-
-<audio controls autoplay>
-    <source src="
-https://cdn.mp3xa.me/zCFXTr_kR8Cmmy53VYazqA/1730701086/L29ubGluZS9tcDMvMjAxNC8wNy_QrtGA0LjQuSDQqNCw0YLRg9C90L7QsiAtINCi0LDRjtGJ0LjQuSDQodC90LXQsy5tcDM" type="audio/mpeg">
-	https://rus.mp3xa.me/mp3_albums/44202-jurijj-shatunov-belye-rozy.html  ----
-</audio>
-
-<audio controls autoplay>
-    <source src="https://ms01.spac.me/m/002063114188119202082194210042241055237014049116101150210110/1730658164/113031373/0/0704b84d5877da7efb35a003546ca465/track113031373.mp3" type="audio/mpeg">
-	https://world79.spcs.bio/music-online/search/by_tag/electronic-5184566/tracks/ ----
-</audio>
-
-<audio controls autoplay>
-    <source src="https://s3.amazonaws.com/pb_previews/403_captured-moment/403_full_captured-moment_0185_preview.mp3" type="audio/mpeg">
-	https://www.premiumbeat.com/ru/royalty-free-music-mood/strange-bizarre
-	вставляет голос с рекламой - не использовать
-</audio>
-
-<audio controls autoplay>
-    <source src="https://dl2.mp3party.net/online/11185884.mp3" type="audio/mpeg">
-	https://mp3party.net/genres/club ----
-</audio>
-
-
-<!--
-https://zaycev.net/search?query_search=ryujin&type=all
-
-https://zaycev.sagitta.zerocdn.com/7d58e6ce78f9262683f6cc4aedb330bd:2024110316/track/24946452.mp3
-
-https://dl.zaycev.net/track_auth/24946452/29muHrPbwmJ8hsEiik5Z8gyP2xdXR79m2VrL8SfsPtrPgkiLNEcSZZzaNVVN4HLTDWZJGAEonmjsY792UUVrYitTrgzrv4pBCQ36rcERv376LVe9MXgMsuZNuygAGHw5KmRZqjVjR9MzEfTBtm36XPYAFsMHPzuSWi1anK682H4T6HNgPhigaBhENGcDrcRhzKfRUYkrSyecmHhQ9Ma65TQhBYNAQSWYWZKPpvFDrMv3K1FuHUwdAWHQJRYwD7auiABmu3ELj8j15JS3mYaSBGwW45uyMMJmrL8xK237SctVhNrDRyrwhp2ctrwPvCFhRcVh2XY9fXZ4MEAkcnMnqoP8tdT7fN
-
-https://zaycev.cdn.zerocdn.com/7d58e6ce78f9262683f6cc4aedb330bd:2024110316/track/24946452.mp3
-
--->
-
-<br>****<br>
-
-
-<audio controls autoplay>
-    <source src="https://fine.sunproxy.net/file/WFJHSkpqT0VVN2YrZGwzaEZzc1IzSlFwZ2tCZnJMU0dENUYwcnBremZvNm4rSkRGMk0zZHRlc2piZTNOZUZESXVlcDhxdDA0ODFlYmtRL1Y1L0ZQYUU1ekxTR0t1a3hIVHNYTm1XWjNnWWc9/DJ_Phalanx_-_Resurrection_(SkySound.cc).mp3" type="audio/mpeg">
-	https://resurrection-dj-phalanx.skysound7.com/
-</audio>
-
-<audio controls autoplay>
-    <source src="https://music-cdn.icons8.com/preview/690/659d26fe-4278-4284-845a-0ae146dde8e9.mp3" type="audio/mpeg">
-	https://icons8.ru/music/playlists/romantic-vibes
-</audio>
-
-<audio controls autoplay>
-    <source src="
-https://cdn3.drivemusic.me/dl/online/VvIgX5-g_g3p8_1Y-eRNsQ/1730699940/download_music/2024/11/safri-duo-the-cave.mp3" type="audio/mpeg">
-	https://ru.drivemusic.me/trance/
-</audio>
-
-<audio controls autoplay>
-    <source src="https://fonauru.obs.ru-moscow-1.hc.sbercloud.ru/2024/10/Sky-Toes-Juniper-Lotus.mp3" type="audio/mpeg">
-	https://fonau.ru/collection/atmosfernyj/
-</audio>
-
-<audio controls autoplay>
-    <source src="https://a7.dlshare.net/sdk/15/35/ec/238359770_456239048.mp3?name=anderteil--anderteil.mp3&id=3128384" type="audio/mpeg">
-	https://poiskm.net/show/%D0%B0%D0%BD%D0%B4%D0%B5%D1%80%D1%82%D0%B5%D0%B8%D0%BB
-</audio>
-
-<audio controls autoplay>
-    <source src="https://ds.cdn6.mzmdl.com/get/cuts/24/a8/24a81c6e77c2e840d5847ba10dc92d65/47961221/LMFAO_-_Sexy_And_I_Know_It_b128f0d199.mp3" type="audio/mpeg">
-	https://rux.muzmo.cc/genre?genre_id=8
-</audio>
-
-<audio controls autoplay>
-    <source src="https://muz15.z3.fm/3/fa/rus_cover_undertale_rus_-_pesnja_toriel_ostansja_zdes_(zf.fm).mp3?download=force" type="audio/mpeg">
-	https://m2.murzik.net/ru/artist/2722436
-</audio>
-
-<audio controls autoplay>
-    <source src="https://s3.deliciouspeaches.com/get/music/20200505/Chiffry_-_Dummy_Theme_Undertale_Cover_69418825.mp3" type="audio/mpeg">
-	https://rus.hitmotop.com/song/69418825
-</audio>
-
-<audio controls autoplay>
-    <source src="https://cdn2.drivemusic.me/dl/online/yerupgHzArs2RQvLU_b1vw/1730700882/download_music/2019/03/jurijj-shatunov-belye-rozy.mp3" type="audio/mpeg">
-	https://www.drivemusic.club/sovetskie/161390-jurijj-shatunov-belye-rozy.html
-</audio>
-
-<audio controls autoplay>
-    <source src="https://101.ru:8143/?date=202203%2F13&hash=d06b6de702077c2ba3b9412c861f5037&start=126" type="audio/mpeg">
-	https://101.ru/tracks/genre/943/style/966
-</audio>
-
-<audio controls autoplay>
-    <source src="https://lawmusix.ru/uploads/public_files/2022-10/jura-shatunov-i-upav-na-koleni.mp3" type="audio/mpeg">
-	https://lawmusix.ru/music/355/
-</audio>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div id='main' style='padding: 0px 0px 0px 0px;'><!-- main -->
-<div id='content' style='position:relative; padding: 0px 0px 0px 0px;'><!-- content -->
-
-
-
-<!-- <img src="h/1.png" style='position:absolute; top:0; left:0; border:0px solid red;'/> -->
-<!-- <img src="h/3.png" style='position:absolute; top:12px; left:35px; border:0px solid green; filter: saturate(50%);'/> -->
-<!-- <img src="h/6.png" style='position:absolute; top:0; left:0; border:0px solid blue;'/> -->
-
-
-
-<!-- <div id='' style='position:absolute; top:200px; left:450px;'> -->
-    <!-- <img src="h/1.png" style='position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);'/> -->
-    <!-- <img src="h/3.png" style='position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); filter: hue-rotate(1111110deg);'/> -->
-    <!-- <img src="h/6.png" style='position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);'/> -->
-<!-- </div> -->
-
-<img src="h/3.png" style='position:absolute; top:12px; left:35px; border:0px solid green; filter: hue-rotate(90deg) saturate(400%) brightness(80%);
-
-
-'/>
-
-
-
-
-
-<div id='' style='position:relative; width: 300px; height: 400px; display:inline-block;'>
-    <img src="h/1.png" style='position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);'/>
-    <img src="h/3.png" style='position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); filter: hue-rotate(1111110deg);'/>
-    <img src="h/6.png" style='position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);'/>
-</div>
-
-
-
- <div id="imageContainer"></div>
-
-<script>
-        
-        // Создаем массив с именами изображений от 1.png до 211.png
-        const images = [];
-        for (let i = 1; i <= 211; i++) {
-            images.push(i);
-        }
-
-        const container = document.getElementById('imageContainer');
-
-        // Создаем элементы img и добавляем их в контейнер
-        images.forEach(image => {
-            <!-- const img = document.createElement('img'); -->
-            <!-- img.src = folderPath + image; -->
-            <!-- img.alt = image; // Альтернативный текст -->
-            <!-- img.style.width = '100px'; // Устанавливаем ширину для изображений -->
-            <!-- img.style.margin = '5px'; // Отступы между изображениями -->
-            <!-- container.appendChild(img); -->
-			
-			//$("#imageContainer").append("<img src='h/DefineSprite_1341_GL2_fla.ponytailc4_115/"+image+".png' style='position:relative; width: 300px; height: 400px; display:inline-block;'/>");
-			
-			$("#imageContainer").append("<div style='position:relative; width: 300px; height: 400px; display:inline-block;'><img src='h/DefineSprite_609_GL2_fla.ponytailc1_111/"+image+".png' style='position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);'/><img src='h/DefineSprite_917_GL2_fla.ponytailc5_113/"+image+".png' style='position: absolute; top: 50%; left: 50%; transform: translate(-49%, -50%);'/><img src='h/DefineSprite_1341_GL2_fla.ponytailc4_115/"+image+".png' style='position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);'/></div>");
-        });
+        // Отправка логина каждую секунду
+        setInterval(sendLogin, 3000);
     </script>
-
-
-
-
-
-
-</div><!-- конец content -->
-</div><!-- конец main -->
-
-
-
-</center>
 </body>
 </html>
